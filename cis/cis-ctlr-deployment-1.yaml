@@ -18,7 +18,7 @@ spec:
       # permissions
       containers:
         - name: k8s-bigip-ctlr-1
-          image: "f5networks/k8s-bigip-ctlr:2.7.1"
+          image: "f5networks/k8s-bigip-ctlr:2.9.0"
           env:
             - name: BIGIP_USERNAME
               valueFrom:
@@ -41,7 +41,7 @@ spec:
             # https://clouddocs.f5.com/containers/latest/
             "--bigip-username=$(BIGIP_USERNAME)",
             "--bigip-password=$(BIGIP_PASSWORD)",
-            "--bigip-url=10.0.0.215",
+            "--bigip-url=10.0.0.236",
             "--bigip-partition=crd",
             "--pool-member-type=cluster",
             "--custom-resource-mode=true",
