@@ -1,0 +1,31 @@
+apiVersion: cis.f5.com/v1
+kind: Policy
+metadata:
+  labels:
+    f5cr: "true"
+  name: lb-policy
+  namespace: default
+spec:
+  snat: none
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: external
+    cis.f5.com/ipamLabel: sig
+    #cis.f5.com/health: '{"interval": 10, "timeout": 31}'
+    cis.f5.com/policyName: lb-policy
+  labels:
+    app: sctp-test
+  name: svc-lb1-sctp
+  namespace: default
+spec:
+  type: LoadBalancer
+  ports:
+    - name: svc-lb1-sctp
+      port: 36412
+      protocol: SCTP
+      targetPort: 36412
+  selector:
+    app: sctp-test
