@@ -41,7 +41,7 @@ spec:
             # https://clouddocs.f5.com/containers/latest/
             "--bigip-username=$(BIGIP_USERNAME)",
             "--bigip-password=$(BIGIP_PASSWORD)",
-            "--bigip-url=10.0.0.30",
+            "--bigip-url=10.0.0.66",
             "--bigip-partition=configmap",
             "--pool-member-type=cluster",
             "--log-level=DEBUG",
